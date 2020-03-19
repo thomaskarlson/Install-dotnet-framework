@@ -85,8 +85,7 @@ function GetAndInstallPackage($packageId, $netver)
     Write-Host "Installer downloaded"
     Write-Host "Launching installer, it might take some time, please wait..."
     $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
-    # use /norestart?
-    & "$InstallerPath" /q | Out-null
+    & "$InstallerPath" /q /norestart | Out-null
     $elapsed = $stopwatch.Elapsed.TotalSeconds
     Write-Host "Installer ran for $elapsed seconds."
     $stopwatch.Stop()
